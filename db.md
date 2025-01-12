@@ -391,7 +391,7 @@
 | ldap_group | INTEGER | | | | | Nhóm LDAP |
 
 
-## 1. Bảng stage
+## 41. Bảng stage
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | stage_id | BIGINT | X |  | P |  | ID của stage |
@@ -405,7 +405,7 @@
 | command_params | BYTEA |  |  |  |  | Tham số lệnh |
 | host_params | BYTEA |  |  |  |  | Tham số host |
 
-2. Bảng host_version
+## 42. Bảng host_version
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của host version |
@@ -413,7 +413,7 @@
 | host_id | BIGINT | X |  | F |  | ID của host |
 | state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái |
 
-3. Bảng hostcomponentdesiredstate
+## 43. Bảng hostcomponentdesiredstate
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | cluster_id | BIGINT | X |  | P |  | ID của cluster |
@@ -427,7 +427,7 @@
 | security_state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái bảo mật |
 | restart_required | SMALLINT |  |  |  |  | Yêu cầu khởi động lại |
 
-4. Bảng servicecomponentdesiredstate
+## 44. Bảng servicecomponentdesiredstate
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của desired state |
@@ -439,9 +439,7 @@
 | service_name | CHARACTER VARYING(255) | X |  |  |  | Tên service |
 | recovery_enabled | SMALLINT |  |  |  |  | Cho phép phục hồi |
 
-Tôi sẽ tiếp tục với các bảng còn lại:
-
-5. Bảng hostcomponentstate
+## 45. Bảng hostcomponentstate
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của component state |
@@ -455,7 +453,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | upgrade_state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái nâng cấp |
 | security_state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái bảo mật |
 
-6. Bảng hostconfigmapping
+## 46. Bảng hostconfigmapping
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | cluster_id | BIGINT | X |  | P |  | ID của cluster |
@@ -467,14 +465,14 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | selected | INTEGER |  |  |  |  | Đã chọn |
 | user_name | CHARACTER VARYING(255) |  |  |  |  | Tên người dùng |
 
-7. Bảng hostgroup
+## 47. Bảng hostgroup
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | blueprint_name | CHARACTER VARYING(255) | X |  | P |  | Tên blueprint |
 | name | CHARACTER VARYING(255) | X |  | P |  | Tên nhóm host |
 | cardinality | CHARACTER VARYING(255) |  |  |  |  | Số lượng |
 
-8. Bảng hostgroup_component
+## 48. Bảng hostgroup_component
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | blueprint_name | CHARACTER VARYING(255) | X |  | P |  | Tên blueprint |
@@ -482,7 +480,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | name | CHARACTER VARYING(255) | X |  | P |  | Tên component |
 | provision_action | CHARACTER VARYING(255) |  |  |  |  | Hành động cung cấp |
 
-9. Bảng hostgroup_configuration
+## 49. Bảng hostgroup_configuration
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | blueprint_name | CHARACTER VARYING(255) | X |  | P |  | Tên blueprint |
@@ -491,7 +489,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | config_data | TEXT |  |  |  |  | Dữ liệu cấu hình |
 | config_attributes | TEXT |  |  |  |  | Thuộc tính cấu hình |
 
-10. Bảng hoststate
+## 50. Bảng hoststate
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | agent_version | CHARACTER VARYING(255) |  |  |  |  | Phiên bản agent |
@@ -502,39 +500,39 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | time_in_state | BIGINT |  |  |  |  | Thời gian trong trạng thái |
 | maintenance_state | CHARACTER VARYING(512) |  |  |  |  | Trạng thái bảo trì |
 
-11. Bảng kerberos_descriptor
+## 51. Bảng kerberos_descriptor
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | kerberos_descriptor_name | CHARACTER VARYING(255) | X |  | P |  | Tên mô tả Kerberos |
 | kerberos_descriptor | TEXT |  |  |  |  | Mô tả Kerberos |
 
-12. Bảng kerberos_principal
+## 52. Bảng kerberos_principal
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | principal_name | CHARACTER VARYING(255) | X |  | P |  | Tên principal |
 | is_service | SMALLINT |  |  |  |  | Là service |
 | cached_keytab_path | CHARACTER VARYING(255) |  |  |  |  | Đường dẫn keytab cache |
 
-13. Bảng kerberos_principal_host
+## 53. Bảng kerberos_principal_host
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | principal_name | CHARACTER VARYING(255) | X |  | P |  | Tên principal |
 | host_id | BIGINT | X |  | P |  | ID của host |
 
-14. Bảng key_value_store
+## 54. Bảng key_value_store
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | key | CHARACTER VARYING(255) | X |  | P |  | Khóa |
 | value | CHARACTER VARYING |  |  |  |  | Giá trị |
 
-15. Bảng members
+## 55. Bảng members
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | member_id | INTEGER | X |  | P |  | ID của thành viên |
 | group_id | INTEGER | X |  | F |  | ID của nhóm |
 | user_id | INTEGER | X |  | F |  | ID của người dùng |
 
-16. Bảng users
+## 56. Bảng users
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | user_id | INTEGER | X |  | P |  | ID của người dùng |
@@ -547,25 +545,25 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | active | INTEGER |  |  |  |  | Trạng thái hoạt động |
 | active_widget_layouts | CHARACTER VARYING(1024) |  |  |  |  | Layout widget đang hoạt động |
 
-17. Bảng metainfo
+## 57. Bảng metainfo
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | metainfo_key | CHARACTER VARYING(255) | X |  | P |  | Khóa metainfo |
 | metainfo_value | CHARACTER VARYING |  |  |  |  | Giá trị metainfo |
 
-18. Bảng permission_roleauthorization
+## 58. Bảng permission_roleauthorization
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | permission_id | BIGINT | X |  | P |  | ID của quyền |
 | authorization_id | CHARACTER VARYING(100) | X |  | P |  | ID của ủy quyền |
 
-19. Bảng roleauthorization
+## 59. Bảng roleauthorization
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | authorization_id | CHARACTER VARYING(100) | X |  | P |  | ID của ủy quyền |
 | authorization_name | CHARACTER VARYING(255) |  |  |  |  | Tên ủy quyền |
 
-## 20. Bảng qrtz_triggers
+## 60. Bảng qrtz_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -585,7 +583,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | misfire_instr | SMALLINT |  |  |  |  | Hướng dẫn khi bỏ lỡ |
 | job_data | BYTEA |  |  |  |  | Dữ liệu job |
 
-21. Bảng qrtz_blob_triggers
+## 61. Bảng qrtz_blob_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -593,7 +591,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | trigger_group | CHARACTER VARYING(200) | X |  | P |  | Nhóm trigger |
 | blob_data | BYTEA |  |  |  |  | Dữ liệu blob |
 
-22. Bảng qrtz_calendars
+## 62. Bảng qrtz_calendars
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -601,7 +599,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | calendar | BYTEA |  |  |  |  | Dữ liệu lịch |
 
 
-1. Bảng qrtz_cron_triggers
+## 63. Bảng qrtz_cron_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -610,7 +608,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | cron_expression | CHARACTER VARYING(120) |  |  |  |  | Biểu thức cron |
 | time_zone_id | CHARACTER VARYING(80) |  |  |  |  | ID múi giờ |
 
-2. Bảng qrtz_fired_triggers
+## 64. Bảng qrtz_fired_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -627,7 +625,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | is_nonconcurrent | BOOLEAN |  |  |  |  | Không đồng thời |
 | requests_recovery | BOOLEAN |  |  |  |  | Yêu cầu khôi phục |
 
-3. Bảng qrtz_job_details
+## 65. Bảng qrtz_job_details
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -641,13 +639,13 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | requests_recovery | BOOLEAN |  |  |  |  | Yêu cầu khôi phục |
 | job_data | BYTEA |  |  |  |  | Dữ liệu job |
 
-4. Bảng qrtz_locks
+## 66. Bảng qrtz_locks
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
 | lock_name | CHARACTER VARYING(40) | X |  | P |  | Tên khóa |
 
-5. Bảng qrtz_paused_trigger_grps
+## 67. Bảng qrtz_paused_trigger_grps
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -655,7 +653,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 
 Tôi sẽ tiếp tục với các bảng còn lại:
 
-6. Bảng qrtz_scheduler_state
+## 68. Bảng qrtz_scheduler_state
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -663,7 +661,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | last_checkin_time | BIGINT |  |  |  |  | Thời gian check-in cuối |
 | checkin_interval | BIGINT |  |  |  |  | Khoảng thời gian check-in |
 
-7. Bảng qrtz_simple_triggers
+## 69. Bảng qrtz_simple_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -673,7 +671,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | repeat_interval | BIGINT |  |  |  |  | Khoảng thời gian lặp |
 | times_triggered | BIGINT |  |  |  |  | Số lần đã kích hoạt |
 
-8. Bảng qrtz_simprop_triggers
+## 70. Bảng qrtz_simprop_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -691,7 +689,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | bool_prop_1 | BOOLEAN |  |  |  |  | Thuộc tính boolean 1 |
 | bool_prop_2 | BOOLEAN |  |  |  |  | Thuộc tính boolean 2 |
 
-9. Bảng remoteambaricluster
+## 71. Bảng remoteambaricluster
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | cluster_id | BIGINT | X |  | P |  | ID của cluster |
@@ -700,14 +698,14 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | url | CHARACTER VARYING(255) |  |  |  |  | URL |
 | password | CHARACTER VARYING(255) |  |  |  |  | Mật khẩu |
 
-10. Bảng remoteambariclusterservice
+## 72. Bảng remoteambariclusterservice
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của service |
 | cluster_id | BIGINT | X |  | F |  | ID của cluster |
 | service_name | CHARACTER VARYING(255) | X |  |  |  | Tên service |
 
-11. Bảng requestschedule
+## 73. Bảng requestschedule
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | schedule_id | BIGINT | X |  | P |  | ID của lịch |
@@ -731,7 +729,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | endtime | CHARACTER VARYING(50) |  |  |  |  | Thời gian kết thúc |
 | last_execution_status | CHARACTER VARYING(255) |  |  |  |  | Trạng thái thực thi cuối |
 
-12. Bảng request
+## 74. Bảng request
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | request_id | BIGINT | X |  | P |  | ID của request |
@@ -747,7 +745,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | start_time | BIGINT |  |  |  |  | Thời gian bắt đầu |
 | status | CHARACTER VARYING(255) |  |  |  |  | Trạng thái |
 
-### Bảng requestoperationlevel
+## 75. Bảng requestoperationlevel
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | operation_level_id | BIGINT | X |  | P |  | ID của operation level |
@@ -758,7 +756,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | host_component_name | CHARACTER VARYING(255) |  |  |  |  | Tên host component |
 | host_id | BIGINT |  |  | F |  | ID của host |
 
-### Bảng requestresourcefilter
+## 76. Bảng requestresourcefilter
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | filter_id | BIGINT | X |  | P |  | ID của filter |
@@ -767,7 +765,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | component_name | CHARACTER VARYING(255) |  |  |  |  | Tên component |
 | hosts | BYTEA |  |  |  |  | Thông tin hosts |
 
-### Bảng requestschedulebatchrequest
+## 77. Bảng requestschedulebatchrequest
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | schedule_id | BIGINT | X |  | P |  | ID của schedule |
@@ -780,7 +778,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | return_code | SMALLINT |  |  |  |  | Mã trả về |
 | return_message | CHARACTER VARYING(20000) |  |  |  |  | Thông điệp trả về |
 
-### Bảng role_success_criteria
+## 78. Bảng role_success_criteria
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | role | CHARACTER VARYING(255) | X |  | P |  | Tên role |
@@ -788,7 +786,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | stage_id | BIGINT | X |  | P |  | ID của stage |
 | success_factor | DOUBLE PRECISION |  |  |  |  | Hệ số thành công |
 
-### Bảng servicecomponent_history
+## 79. Bảng servicecomponent_history
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của history |
@@ -797,7 +795,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | from_stack_id | BIGINT |  |  | F |  | ID stack ban đầu |
 | to_stack_id | BIGINT |  |  | F |  | ID stack đích |
 
-### Bảng serviceconfig
+## 80. Bảng serviceconfig
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | service_config_id | BIGINT | X |  | P |  | ID của service config |
@@ -810,19 +808,19 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | group_id | BIGINT |  |  | F |  | ID của group |
 | note | TEXT |  |  |  |  | Ghi chú |
 
-### Bảng serviceconfighosts
+## 81. Bảng serviceconfighosts
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | service_config_id | BIGINT | X |  | P |  | ID của service config |
 | host_id | BIGINT | X |  | P |  | ID của host |
 
-### Bảng serviceconfigmapping
+## 82. Bảng serviceconfigmapping
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | service_config_id | BIGINT | X |  | P |  | ID của service config |
 | config_id | BIGINT | X |  | P |  | ID của config |
 
-### Bảng servicedesiredstate
+## 83. Bảng servicedesiredstate
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | cluster_id | BIGINT | X |  | P |  | ID của cluster |
@@ -833,7 +831,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | maintenance_state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái bảo trì |
 | security_state | CHARACTER VARYING(32) |  |  |  |  | Trạng thái bảo mật |
 
-### Bảng setting
+## 84. Bảng setting
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của setting |
@@ -843,7 +841,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | updated_by | CHARACTER VARYING(255) |  |  |  |  | Người cập nhật |
 | update_timestamp | BIGINT |  |  |  |  | Thời gian cập nhật |
 
-### Bảng topology_host_info
+## 85. Bảng topology_host_info
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của host info |
@@ -854,7 +852,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | predicate | CHARACTER VARYING(2048) |  |  |  |  | Điều kiện |
 | rack_info | CHARACTER VARYING(255) |  |  |  |  | Thông tin rack |
 
-### Bảng topology_hostgroup
+## 86. Bảng topology_hostgroup
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của host group |
@@ -863,7 +861,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | group_attributes | TEXT |  |  |  |  | Thuộc tính bổ sung |
 | request_id | BIGINT |  |  | F |  | ID của request |
 
-### Bảng topology_host_request
+## 87. Bảng topology_host_request
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của host request |
@@ -872,21 +870,21 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | stage_id | BIGINT |  |  | F |  | ID của stage |
 | host_name | CHARACTER VARYING(255) |  |  |  |  | Tên host |
 
-### Bảng topology_logical_request
+## 88. Bảng topology_logical_request
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của logical request |
 | request_id | BIGINT |  |  | F |  | ID của request |
 | description | CHARACTER VARYING(1024) |  |  |  |  | Mô tả |
 
-### Bảng topology_host_task
+## 89. Bảng topology_host_task
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của host task |
 | host_request_id | BIGINT |  |  | F |  | ID của host request |
 | type | CHARACTER VARYING(255) |  |  |  |  | Loại task |
 
-### Bảng topology_request
+## 90. Bảng topology_request
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của request |
@@ -898,7 +896,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | description | CHARACTER VARYING(1024) |  |  |  |  | Mô tả |
 | provision_action | CHARACTER VARYING(255) |  |  |  |  | Hành động cấp phát |
 
-### Bảng upgrade_group
+## 91. Bảng upgrade_group
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | upgrade_group_id | BIGINT | X |  | P |  | ID của upgrade group |
@@ -906,7 +904,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | group_name | CHARACTER VARYING(255) |  |  |  |  | Tên group |
 | group_title | CHARACTER VARYING(1024) |  |  |  |  | Tiêu đề group |
 
-### Bảng upgrade_item
+## 92. Bảng upgrade_item
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | upgrade_item_id | BIGINT | X |  | P |  | ID của upgrade item |
@@ -917,7 +915,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | tasks | TEXT |  |  |  |  | Danh sách tasks |
 | item_text | CHARACTER VARYING(1024) |  |  |  |  | Nội dung item |
 
-### Bảng users_1
+## 93. Bảng users_1
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | user_id | INTEGER | X |  | P |  | ID của user |
@@ -929,7 +927,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | user_password | CHARACTER VARYING(255) |  |  |  |  | Mật khẩu |
 | active
 
-### Bảng users_2
+## 94. Bảng users_2
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | user_id | INTEGER | X |  | P |  | ID của user |
@@ -942,7 +940,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | active | INTEGER |  |  |  |  | Trạng thái kích hoạt |
 | active_widget_layouts | CHARACTER VARYING(1024) |  |  |  |  | Layout widget đang kích hoạt |
 
-### Bảng viewinstance
+## 95. Bảng viewinstance
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_instance_id | BIGINT | X |  | P |  | ID của view instance |
@@ -960,7 +958,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | cluster_type | CHARACTER VARYING(100) |  |  |  |  | Loại cluster |
 | short_url | BIGINT |  |  |  |  | URL rút gọn |
 
-### Bảng viewentity
+## 96. Bảng viewentity
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của view entity |
@@ -969,7 +967,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | class_name | CHARACTER VARYING(255) |  |  |  |  | Tên class |
 | id_property | CHARACTER VARYING(255) |  |  |  |  | Thuộc tính ID |
 
-### Bảng viewmain
+## 97. Bảng viewmain
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_name | CHARACTER VARYING(255) | X |  | P |  | Tên view |
@@ -984,14 +982,14 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | mask | CHARACTER VARYING(255) |  |  |  |  | Mask |
 | system_view | SMALLINT |  |  |  |  | View hệ thống |
 
-### Bảng viewurl
+## 98. Bảng viewurl
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | url_id | BIGINT | X |  | P |  | ID của URL |
 | url_name | CHARACTER VARYING(255) | X |  |  |  | Tên URL |
 | url_suffix | CHARACTER VARYING(255) | X |  |  |  | Hậu tố URL |
 
-### Bảng viewinstancedata
+## 99. Bảng viewinstancedata
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_instance_id | BIGINT | X |  | P |  | ID của view instance |
@@ -1001,7 +999,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | user_name | CHARACTER VARYING(255) |  |  |  |  | Tên người dùng |
 | value | CHARACTER VARYING(2000) |  |  |  |  | Giá trị |
 
-### Bảng viewinstanceproperty
+## 100. Bảng viewinstanceproperty
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_name | CHARACTER VARYING(255) | X |  | P |  | Tên view |
@@ -1009,7 +1007,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | name | CHARACTER VARYING(255) | X |  | P |  | Tên thuộc tính |
 | value | CHARACTER VARYING(2000) |  |  |  |  | Giá trị |
 
-### Bảng viewparameter
+## 101. Bảng viewparameter
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_name | CHARACTER VARYING(255) | X |  | P |  | Tên view |
@@ -1022,7 +1020,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | required | CHARACTER(1) |  |  |  |  | Bắt buộc |
 | masked | CHARACTER(1) |  |  |  |  | Ẩn giá trị |
 
-### Bảng viewresource
+## 102. Bảng viewresource
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | view_name | CHARACTER VARYING(255) | X |  | P |  | Tên view |
@@ -1034,7 +1032,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | service | CHARACTER VARYING(255) |  |  |  |  | Service |
 | resource | CHARACTER VARYING(255) |  |  |  |  | Resource |
 
-### Bảng widget
+## 103. Bảng widget
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của widget |
@@ -1050,7 +1048,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | properties | TEXT |  |  |  |  | Thuộc tính |
 | cluster_id | BIGINT |  |  | F |  | ID của cluster |
 
-### Bảng widget_layout
+## 104. Bảng widget_layout
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của layout |
@@ -1061,14 +1059,14 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | display_name | CHARACTER VARYING(255) |  |  |  |  | Tên hiển thị |
 | cluster_id | BIGINT |  |  | F |  | ID của cluster |
 
-### Bảng widget_layout_user_widget
+## 105. Bảng widget_layout_user_widget
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | widget_layout_id | BIGINT | X |  | P |  | ID của widget layout |
 | widget_id | BIGINT | X |  | P |  | ID của widget |
 | widget_order | SMALLINT |  |  |  |  | Thứ tự widget |
 
-### Bảng topology_logical_task
+## 106. Bảng topology_logical_task
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | id | BIGINT | X |  | P |  | ID của logical task |
