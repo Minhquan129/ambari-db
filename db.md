@@ -390,11 +390,8 @@
 | group_name | VARCHAR(255) | | | | | Tên nhóm |
 | ldap_group | INTEGER | | | | | Nhóm LDAP |
 
-I'll help create documentation for these tables in the same format. I'll do this in multiple responses to keep it organized.
 
-Let's start with the first few tables:
-
-1. Bảng stage
+## 1. Bảng stage
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | stage_id | BIGINT | X |  | P |  | ID của stage |
@@ -568,7 +565,7 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | authorization_id | CHARACTER VARYING(100) | X |  | P |  | ID của ủy quyền |
 | authorization_name | CHARACTER VARYING(255) |  |  |  |  | Tên ủy quyền |
 
-20. Bảng qrtz_triggers
+## 20. Bảng qrtz_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
 |------------|------------------------|----------|---------|---------|-----------|--------|
 | sched_name | CHARACTER VARYING(120) | X |  | P |  | Tên lịch |
@@ -603,7 +600,6 @@ Tôi sẽ tiếp tục với các bảng còn lại:
 | calendar_name | CHARACTER VARYING(200) | X |  | P |  | Tên lịch |
 | calendar | BYTEA |  |  |  |  | Dữ liệu lịch |
 
-Tôi sẽ tiếp tục với các bảng còn lại, tôi sẽ chia thành nhiều phần để dễ theo dõi:
 
 1. Bảng qrtz_cron_triggers
 | Tên trường | Kiểu dữ liệu và độ dài | Nullable | Unique | P/F Key | Mặc định | Mô tả |
